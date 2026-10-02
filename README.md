@@ -17,6 +17,7 @@
 - `refresh_ovpn.py` — OpenVPN 提取脚本，只用 Python 标准库
 - `openvpn.zip` — 全部可用 OpenVPN 配置打包（每 30 分钟刷新）
 - `openvpn.txt` — OpenVPN 节点索引清单（文件名 | 国家 | 地址:端口）
+- `openvpn.yaml` — Clash 可直接用的 OpenVPN 订阅（`proxies:` 列表，证书用 YAML 锚点复用）
 - `.github/workflows/refresh.yml` — 优选池：每周日 11:00（北京时间）+ 手动触发
 - `.github/workflows/refresh-ovpn.yml` — OpenVPN：每 30 分钟 + 手动触发
 

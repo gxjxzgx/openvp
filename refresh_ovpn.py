@@ -175,6 +175,69 @@ def check_nodes(nodes, timeout, workers):
     return alive
 
 
+def pem_block(cfg, tag):
+    m = re.search(rf"<{tag}>(.*?)</{tag}>", cfg, re.S)
+    if not m:
+        return ""
+    return m.group(1).replace("\r\n", "\n").strip()
+
+
+def cfg_directive(cfg, name, default):
+    m = re.search(rf"^{name}\s+(\S+)", cfg, re.M)
+    return m.group(1) if m else default
+
+
+def write_clash_yaml(nodes, out_dir):
+    """生成 Clash 可直接用的 openvpn.yaml (proxies 列表)。
+    证书全网通用: 第一个节点用 YAML 锚点定义, 其余引用。"""
+    os.makedirs(out_dir, exist_ok=True)
+    first = nodes[0]["config"]
+    ca, cert, key = pem_block(first, "ca"), pem_block(first, "cert"), pem_block(first, "key")
+
+    def indented(pem):
+        return "\n".join("      " + ln for ln in pem.splitlines())
+
+    counters = {}
+    out = ["proxies:"]
+    for i, n in enumerate(nodes):
+        cs = re.sub(r"\W+", "", n["country_short"]) or "XX"
+        counters[cs] = counters.get(cs, 0) + 1
+        name = f"🏠 {cs}-家宽-{counters[cs]:02d}"
+        cfg = n["config"]
+        cipher = cfg_directive(cfg, "cipher", "AES-128-CBC")
+        auth = cfg_directive(cfg, "auth", "SHA1")
+        udp = n["proto"] == "udp"
+        out.append(f'  - name: "{name}"')
+        out.append("    type: openvpn")
+        out.append(f"    server: {n['remote_host']}")
+        out.append(f"    port: {n['remote_port']}")
+        out.append(f"    proto: {n['proto']}")
+        out.append("    username: vpn")
+        out.append("    password: vpn")
+        out.append(f"    cipher: {cipher}")
+        out.append(f"    auth: {auth}")
+        out.append(f"    udp: {'true' if udp else 'false'}")
+        out.append("    handshake-timeout: 30")
+        out.append("    remote-dns-resolve: true")
+        out.append("    dns: [ 8.8.8.8, 1.1.1.1 ]")
+        out.append("")
+        if i == 0:
+            out.append("    ca: &jkca |-")
+            out.append(indented(ca))
+            out.append("    cert: &jkcert |-")
+            out.append(indented(cert))
+            out.append("    key: &jkkey |-")
+            out.append(indented(key))
+        else:
+            out.append("    ca: *jkca")
+            out.append("    cert: *jkcert")
+            out.append("    key: *jkkey")
+    path = os.path.join(out_dir, "openvpn.yaml")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+    return path
+
+
 def write_outputs(nodes, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     now = datetime.now(BEIJING).strftime("%Y-%m-%d %H:%M")
@@ -232,6 +295,8 @@ def main():
 
     zip_path, txt_path = write_outputs(alive, out_dir)
     log(f"已写入 {zip_path} / {txt_path} ({len(alive)} 个节点)")
+    yaml_path = write_clash_yaml(alive, out_dir)
+    log(f"已写入 {yaml_path}")
 
 
 if __name__ == "__main__":
