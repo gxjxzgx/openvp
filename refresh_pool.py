@@ -19,7 +19,7 @@ Cloudflare 边缘优选池自动刷新。
   TIMEOUT      选填, 单 IP 连接/握手超时秒数, 默认 8
   MIN_KEEP     选填, 可用 IP 少于此数则报错退出(防止提交坏池子), 默认 10
   WORKERS      选填, 并发线程数, 默认 32; 设为 1 则串行(网络受限环境用)
-  V6_RATIO     选填, 采样中 IPv6 占比, 默认 0.15
+  V6_RATIO     选填, 采样中 IPv6 占比, 默认 0 (只采 IPv4; 设为如 0.15 则混采)
   OUT_DIR      选填, 输出目录, 默认脚本所在目录
 """
 
@@ -95,6 +95,11 @@ def sample_ips(nets, count, v6_ratio=0.15):
     return sorted(picked)
 
 
+def fmt_entry(ip):
+    """IP:443, IPv6 加方括号避免歧义。"""
+    return f"[{ip}]:443" if ":" in ip else f"{ip}:443"
+
+
 def test_one(ip, sni, timeout):
     """对单个 IP 做 TCP+TLS 握手, 返回 (ip, 延迟毫秒或 None)。"""
     t0 = time.monotonic()
@@ -129,7 +134,7 @@ def main():
     timeout = float(os.environ.get("TIMEOUT", "8"))
     min_keep = int(os.environ.get("MIN_KEEP", "10"))
     workers = int(os.environ.get("WORKERS", "32"))
-    v6_ratio = float(os.environ.get("V6_RATIO", "0.15"))
+    v6_ratio = float(os.environ.get("V6_RATIO", "0"))
     out_dir = os.environ.get("OUT_DIR", os.path.dirname(os.path.abspath(__file__)))
     os.makedirs(out_dir, exist_ok=True)
 
@@ -186,7 +191,7 @@ def main():
         f.write(f"# 数据源: cloudflare.com/ips-v4 + ips-v6, 采样 {len(ips)} 测得可用 {len(ok)}, 取最快 {len(picked)}\n")
         f.write(f"# 格式: IP:443, 每行一个, 可直接用作 edgetunnel 自定义优选\n")
         for ip, _ in picked:
-            f.write(f"{ip}:443\n")
+            f.write(f"{fmt_entry(ip)}\n")
 
     json_path = os.path.join(out_dir, "edge_pool.json")
     with open(json_path, "w", encoding="utf-8") as f:
