@@ -31,6 +31,7 @@
   .country { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
   .country .head { display: flex; justify-content: space-between; padding: 12px 16px; background: var(--panel2); font-weight: 600; cursor: pointer; flex-wrap: wrap; gap: 6px; }
   .country .head .tag { font-size: 12px; color: var(--muted); font-weight: 400; }
+  td .tag { font-size: 11px; color: var(--muted); }
   .country table { display: none; }
   .country.open table { display: table; }
   .country:first-child table { display: table; }
@@ -180,18 +181,17 @@ function renderOvpn() {
     const dc = g.nodes.filter(function (n) { return n.ip_type === 'datacenter'; }).length;
     const rows = g.nodes.map(function (e) {
       return '<tr>' +
-        '<td><code>' + e.file + '</code></td>' +
+        '<td>' + zhCountry(name) + ' <span class="tag">' + (g.code || '') + '</span></td>' +
         '<td><code>' + e.host + ':' + e.port + '</code></td>' +
-        '<td class="proto-' + e.proto + '">openvpn/' + e.proto + '</td>' +
-        '<td class="lat">' + (e.latency_ms != null ? e.latency_ms + ' ms' : '-') + '</td>' +
-        '<td>' + badge(e.ip_type) + '</td></tr>';
+        '<td>' + badge(e.ip_type) + '</td>' +
+        '<td class="lat">' + (e.latency_ms != null ? e.latency_ms + ' ms' : '-') + '</td></tr>';
     }).join('');
     return '<div class="country' + (ci === 0 ? ' open' : '') + '">' +
       '<div class="head" onclick="this.parentElement.classList.toggle(\'open\')">' +
         '<span>🌏 ' + zhCountry(name) + ' <span class="tag">' + (g.code || '') + '</span></span>' +
         '<span class="tag">' + g.nodes.length + ' 个节点 · 住宅 ' + res + ' · 机房 ' + dc + '</span>' +
       '</div>' +
-      '<table><thead><tr><th>文件</th><th>地址</th><th>协议</th><th>延迟</th><th>类型</th></tr></thead>' +
+      '<table><thead><tr><th>国家</th><th>地址</th><th>类型</th><th>延迟</th></tr></thead>' +
       '<tbody>' + rows + '</tbody></table></div>';
   }).join('');
 }
