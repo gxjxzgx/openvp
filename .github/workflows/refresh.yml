@@ -1,0 +1,36 @@
+name: Refresh CF Edge Pool
+
+# 每周日 11:00 (北京时间) 自动刷新一次, 也支持手动触发
+on:
+  schedule:
+    - cron: "3 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh edge pool
+        env:
+          EDT_DOMAIN: ${{ secrets.EDT_DOMAIN }}
+          POOL_SIZE: "40"
+          SAMPLE_SIZE: "300"
+        run: python refresh_pool.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add edge_pool.txt edge_pool.json
+          git diff --cached --quiet && echo "池子无变化, 跳过提交" && exit 0
+          git commit -m "chore: refresh edge pool $(date -u +%Y-%m-%d)"
+          git push
