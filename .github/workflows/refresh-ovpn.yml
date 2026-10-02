@@ -30,7 +30,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add openvpn.zip openvpn.txt openvpn.yaml openvpn.json
-
           git diff --cached --quiet && echo "节点无变化, 跳过提交" && exit 0
           git commit -m "chore: refresh openvpn nodes $(date -u +%Y-%m-%dT%H:%M)"
-          git push
+          for i in 1 2 3 4 5; do
+            git rebase --abort 2>/dev/null || true
+            if git pull --rebase origin main && git push; then
+              echo "推送成功"
+              break
+            fi
+            echo "推送被拒, 5秒后重试 ($i/5)..."
+            sleep 5
+            [ "$i" = "5" ] && echo "推送失败" && exit 1
+          done
