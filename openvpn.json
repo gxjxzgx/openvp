@@ -1,0 +1,640 @@
+{
+ "updated_at": "2026-10-02 21:40",
+ "total": 75,
+ "countries": {
+  "CN": {
+   "long": "China",
+   "count": 1
+  },
+  "IN": {
+   "long": "India",
+   "count": 1
+  },
+  "JP": {
+   "long": "Japan",
+   "count": 44
+  },
+  "KR": {
+   "long": "Korea Republic of",
+   "count": 24
+  },
+  "MM": {
+   "long": "Myanmar",
+   "count": 1
+  },
+  "RO": {
+   "long": "Romania",
+   "count": 1
+  },
+  "RU": {
+   "long": "Russian Federation",
+   "count": 2
+  },
+  "TH": {
+   "long": "Thailand",
+   "count": 1
+  }
+ },
+ "entries": [
+  {
+   "file": "CN-01.ovpn",
+   "country_long": "China",
+   "country_short": "CN",
+   "host": "219.147.27.214",
+   "port": 5555,
+   "proto": "tcp"
+  },
+  {
+   "file": "IN-01.ovpn",
+   "country_long": "India",
+   "country_short": "IN",
+   "host": "103.172.220.133",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-01.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "110.163.135.206",
+   "port": 1194,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-02.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "111.111.5.138",
+   "port": 1662,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-03.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "115.179.206.241",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-04.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "116.94.25.94",
+   "port": 1507,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-05.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "118.104.73.196",
+   "port": 1289,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-06.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "119.175.209.196",
+   "port": 1350,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-07.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "124.246.174.153",
+   "port": 1375,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-08.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "124.247.181.10",
+   "port": 1989,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-09.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.109.119.89",
+   "port": 1209,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-10.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.218.208.124",
+   "port": 1334,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-11.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.54.0.170",
+   "port": 1661,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-12.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.77.139.139",
+   "port": 1852,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-13.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.77.197.226",
+   "port": 1386,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-14.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "126.80.103.83",
+   "port": 1875,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-15.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "180.22.47.229",
+   "port": 1691,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-16.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "203.135.222.61",
+   "port": 1355,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-17.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "203.180.76.87",
+   "port": 1866,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-18.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "218.46.210.43",
+   "port": 1792,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-19.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.1",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-20.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.11",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-21.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.121",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-22.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.122",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-23.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.168",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-24.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.200",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-25.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.214",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-26.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.225",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-27.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.24",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-28.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.31",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-29.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.32",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-30.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.63",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-31.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.8",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-32.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.81",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-33.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.85",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-34.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.86",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-35.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "220.109.46.143",
+   "port": 1768,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-36.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "59.138.139.69",
+   "port": 1242,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-37.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.103.252.159",
+   "port": 1991,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-38.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.106.128.206",
+   "port": 1674,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-39.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.127.31.208",
+   "port": 1283,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-40.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.127.7.109",
+   "port": 1417,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-41.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.62.115.247",
+   "port": 1649,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-42.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.65.241.137",
+   "port": 1325,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-43.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.86.217.41",
+   "port": 1206,
+   "proto": "tcp"
+  },
+  {
+   "file": "JP-44.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "61.11.207.28",
+   "port": 1938,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-01.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "112.223.241.142",
+   "port": 1878,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-02.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "116.37.252.7",
+   "port": 1250,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-03.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "119.149.247.192",
+   "port": 1261,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-04.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "119.70.219.13",
+   "port": 1529,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-05.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "121.165.121.91",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-06.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "123.143.79.15",
+   "port": 1980,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-07.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "125.140.60.105",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-08.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "125.143.74.228",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-09.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "14.32.251.62",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-10.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "14.53.186.242",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-11.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "180.189.92.52",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-12.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "180.224.138.10",
+   "port": 1918,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-13.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "182.224.56.65",
+   "port": 1792,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-14.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "183.98.13.38",
+   "port": 1203,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-15.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "203.229.159.5",
+   "port": 1643,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-16.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "211.109.4.154",
+   "port": 1823,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-17.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "211.203.72.36",
+   "port": 1924,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-18.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "218.159.1.213",
+   "port": 1745,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-19.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "221.150.225.239",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-20.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "221.163.29.204",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-21.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "222.120.134.151",
+   "port": 1918,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-22.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "58.235.79.150",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-23.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "59.3.169.228",
+   "port": 1712,
+   "proto": "tcp"
+  },
+  {
+   "file": "KR-24.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "59.6.232.26",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "MM-01.ovpn",
+   "country_long": "Myanmar",
+   "country_short": "MM",
+   "host": "103.198.148.130",
+   "port": 995,
+   "proto": "tcp"
+  },
+  {
+   "file": "RO-01.ovpn",
+   "country_long": "Romania",
+   "country_short": "RO",
+   "host": "217.138.212.62",
+   "port": 443,
+   "proto": "tcp"
+  },
+  {
+   "file": "RU-01.ovpn",
+   "country_long": "Russian Federation",
+   "country_short": "RU",
+   "host": "212.20.44.70",
+   "port": 1463,
+   "proto": "tcp"
+  },
+  {
+   "file": "RU-02.ovpn",
+   "country_long": "Russian Federation",
+   "country_short": "RU",
+   "host": "78.140.43.226",
+   "port": 1980,
+   "proto": "tcp"
+  },
+  {
+   "file": "TH-01.ovpn",
+   "country_long": "Thailand",
+   "country_short": "TH",
+   "host": "223.205.88.237",
+   "port": 1289,
+   "proto": "tcp"
+  }
+ ]
+}
