@@ -233,32 +233,39 @@ def main():
     log(f"已写入 {txt_path} / {json_path}")
 
     # 5/4 可选: 生成 vless 订阅 (每个池子 IP 一条直连节点)
+    #   link.txt 明文链接, sub.txt 为其 base64 (标准订阅格式)
     uuid = os.environ.get("EDT_UUID", "").strip()
     if uuid and uuid != "REPLACE_WITH_YOUR_EDT_UUID":
+        import base64 as _b64
         sub_path_override = os.environ.get("SUB_PATH", "").strip()
         fp = os.environ.get("SUB_FP", "chrome")
         prefix = os.environ.get("SUB_PREFIX", "").strip()
-        sub_path = os.path.join(out_dir, "sub.txt")
         counters = {}
         proxy_ips = ",".join(ip for ip, _ in random.sample(picked, min(8, len(picked))))
-        with open(sub_path, "w", encoding="utf-8") as f:
-            f.write("# Cloudflare 边缘优选订阅 (vless://, 自动刷新)\n")
+        link_lines = []
+        for ip, _ in picked:
+            host = f"[{ip}]" if ":" in ip else ip
+            label = prefix or ("IPv6优选" if ":" in ip else "IPv4优选")
+            counters[label] = counters.get(label, 0) + 1
+            name = quote(f"{label}-{counters[label]:02d}", safe="")
+            ws_path = sub_path_override or f"{_random_camo_path()}/proxyip={proxy_ips}"
+            link_lines.append(
+                f"vless://{uuid}@{host}:443?encryption=none&security=tls"
+                f"&type=ws&host={sni}&fp={fp}&sni={sni}"
+                f"&path={quote(ws_path, safe='')}#{name}"
+            )
+        link_path = os.path.join(out_dir, "link.txt")
+        with open(link_path, "w", encoding="utf-8") as f:
+            f.write("# Cloudflare 边缘优选节点 (vless:// 明文, 自动刷新)\n")
             f.write(f"# 更新时间: {now} (北京时间)\n")
             f.write(f"# 每个池子 IP 一条直连节点, SNI={sni}, 共 {len(picked)} 个\n")
-            for ip, _ in picked:
-                host = f"[{ip}]" if ":" in ip else ip
-                label = prefix or ("IPv6优选" if ":" in ip else "IPv4优选")
-                counters[label] = counters.get(label, 0) + 1
-                name = quote(f"{label}-{counters[label]:02d}", safe="")
-                ws_path = sub_path_override or f"{_random_camo_path()}/proxyip={proxy_ips}"
-                f.write(
-                    f"vless://{uuid}@{host}:443?encryption=none&security=tls"
-                    f"&type=ws&host={sni}&fp={fp}&sni={sni}"
-                    f"&path={quote(ws_path, safe='')}#{name}\n"
-                )
-        log(f"已写入 {sub_path} ({len(picked)} 个节点)")
+            f.write("\n".join(link_lines) + "\n")
+        sub_path = os.path.join(out_dir, "sub.txt")
+        with open(sub_path, "w", encoding="utf-8") as f:
+            f.write(_b64.b64encode(("\n".join(link_lines) + "\n").encode("utf-8")).decode("ascii"))
+        log(f"已写入 {link_path} / {sub_path} ({len(picked)} 个节点)")
     else:
-        log("未设置 EDT_UUID, 跳过 sub.txt 生成")
+        log("未设置 EDT_UUID, 跳过 link.txt/sub.txt 生成")
 
 
 if __name__ == "__main__":

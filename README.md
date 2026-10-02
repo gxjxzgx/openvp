@@ -3,7 +3,8 @@
 两个独立的自动刷新流水线，互不联动：
 
 1. **Cloudflare 边缘优选池**（`refresh_pool.py`）：每周从官方 IP 段采样测速，
-   生成 `edge_pool.txt` / `edge_pool.json` / `sub.txt`（vless 订阅）。
+   生成 `edge_pool.txt` / `edge_pool.json` / `link.txt`（明文 vless 链接）/
+   `sub.txt`（base64 订阅）。
 2. **VPN Gate OpenVPN 节点提取**（`refresh_ovpn.py`）：每 30 分钟从 VPN Gate API
    解码 OpenVPN 配置，做 TCP 存活检查，打包 `openvpn.zip` + 索引 `openvpn.txt`。
 
@@ -24,6 +25,7 @@
 - https://gxjxzgx.github.io/openvp/edge_pool.txt
 - https://gxjxzgx.github.io/openvp/edge_pool.json
 - https://gxjxzgx.github.io/openvp/sub.txt
+- https://gxjxzgx.github.io/openvp/link.txt
 - https://gxjxzgx.github.io/openvp/openvpn.zip
 - https://gxjxzgx.github.io/openvp/openvpn.txt
 - https://gxjxzgx.github.io/openvp/openvpn.yaml
