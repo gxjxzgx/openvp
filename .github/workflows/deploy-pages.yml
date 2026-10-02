@@ -11,6 +11,8 @@ on:
       - 'openvpn.zip'
       - 'openvpn.txt'
       - 'openvpn.yaml'
+      - 'openvpn.json'
+      - 'web/index.html'
   workflow_dispatch:
 
 permissions:
@@ -31,9 +33,10 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p site
-          for f in edge_pool.txt edge_pool.json sub.txt openvpn.zip openvpn.txt openvpn.yaml; do
+          for f in edge_pool.txt edge_pool.json sub.txt openvpn.zip openvpn.txt openvpn.yaml openvpn.json; do
             [ -f "$f" ] && cp "$f" site/ && echo "已加入: $f"
           done
+          [ -f web/index.html ] && cp web/index.html site/index.html && echo "已加入: index.html"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
