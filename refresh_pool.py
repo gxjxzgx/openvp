@@ -21,6 +21,11 @@ Cloudflare 边缘优选池自动刷新。
   WORKERS      选填, 并发线程数, 默认 32; 设为 1 则串行(网络受限环境用)
   V6_RATIO     选填, 采样中 IPv6 占比, 默认 0 (只采 IPv4; 设为如 0.15 则混采)
   OUT_DIR      选填, 输出目录, 默认脚本所在目录
+  EDT_UUID     选填, 你的 edgetunnel UUID; 设置后额外生成 sub.txt
+               (vless 订阅, 每个池子 IP 一条直连节点)
+  SUB_PATH     选填, edgetunnel 的 WS 路径, 默认 /video/
+  SUB_FP       选填, TLS fingerprint, 默认 chrome
+  SUB_PREFIX   选填, 订阅节点名前缀, 默认 CF优选
 """
 
 import concurrent.futures as futures
@@ -33,6 +38,7 @@ import ssl
 import sys
 import time
 import urllib.request
+from urllib.parse import quote
 from datetime import datetime, timezone, timedelta
 
 IPV4_URL = "https://www.cloudflare.com/ips-v4"
@@ -209,6 +215,29 @@ def main():
             f, ensure_ascii=False, indent=2,
         )
     log(f"已写入 {txt_path} / {json_path}")
+
+    # 5/4 可选: 生成 vless 订阅 (每个池子 IP 一条直连节点)
+    uuid = os.environ.get("EDT_UUID", "").strip()
+    if uuid and uuid != "REPLACE_WITH_YOUR_EDT_UUID":
+        sub_path_conf = os.environ.get("SUB_PATH", "/video/")
+        fp = os.environ.get("SUB_FP", "chrome")
+        prefix = os.environ.get("SUB_PREFIX", "CF优选")
+        sub_path = os.path.join(out_dir, "sub.txt")
+        with open(sub_path, "w", encoding="utf-8") as f:
+            f.write("# Cloudflare 边缘优选订阅 (vless://, 自动刷新)\n")
+            f.write(f"# 更新时间: {now} (北京时间)\n")
+            f.write(f"# 每个池子 IP 一条直连节点, SNI={sni}, 共 {len(picked)} 个\n")
+            for i, (ip, _) in enumerate(picked, 1):
+                host = f"[{ip}]" if ":" in ip else ip
+                name = quote(f"{prefix}-{i:02d}", safe="")
+                f.write(
+                    f"vless://{uuid}@{host}:443?encryption=none&security=tls"
+                    f"&type=ws&host={sni}&fp={fp}&sni={sni}"
+                    f"&path={quote(sub_path_conf, safe='')}#{name}\n"
+                )
+        log(f"已写入 {sub_path} ({len(picked)} 个节点)")
+    else:
+        log("未设置 EDT_UUID, 跳过 sub.txt 生成")
 
 
 if __name__ == "__main__":

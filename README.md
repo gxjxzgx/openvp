@@ -8,6 +8,8 @@ Cloudflare 边缘优选池自动刷新。数据源是 Cloudflare 官方公布的
 - `refresh_pool.py` — 主脚本，只用 Python 标准库，无第三方依赖
 - `edge_pool.txt` — 生成的优选池（`IP:443` 每行一个），可直接用作 edgetunnel 自定义优选
 - `edge_pool.json` — 同上，带延迟等元数据
+- `sub.txt` — vless 订阅（需配置 `EDT_UUID` secret）：每个池子 IP 一条直连节点，
+  `vless://UUID@IP:443?security=tls&type=ws&sni=你的域名&path=/video/`，客户端直接导入即用
 - `.github/workflows/refresh.yml` — 每周自动刷新 + 手动触发
 
 ## 工作原理
