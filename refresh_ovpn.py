@@ -267,6 +267,34 @@ def write_outputs(nodes, out_dir):
     txt_path = os.path.join(out_dir, "openvpn.txt")
     with open(txt_path, "w", encoding="utf-8") as f:
         f.write("\n".join(index_lines) + "\n")
+    # 监控页用的结构化数据
+    countries = {}
+    for fname, n in entries:
+        cs = n["country_short"]
+        if cs not in countries:
+            countries[cs] = {"long": n["country_long"], "count": 0}
+        countries[cs]["count"] += 1
+    json_path = os.path.join(out_dir, "openvpn.json")
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "updated_at": now,
+                "total": len(entries),
+                "countries": countries,
+                "entries": [
+                    {
+                        "file": fname,
+                        "country_long": n["country_long"],
+                        "country_short": n["country_short"],
+                        "host": n["remote_host"],
+                        "port": n["remote_port"],
+                        "proto": n["proto"],
+                    }
+                    for fname, n in entries
+                ],
+            },
+            f, ensure_ascii=False, indent=1,
+        )
     return zip_path, txt_path
 
 

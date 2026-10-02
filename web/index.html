@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>openvp · 节点监控</title>
+<style>
+  :root {
+    --bg: #0b1120; --panel: #111a2e; --panel2: #16233c; --border: #243450;
+    --text: #dbe7ff; --muted: #7f93b8; --accent: #4cc2ff; --ok: #2fd08a;
+    --warn: #ffb84d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; min-height: 100vh; padding: 20px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 17px; margin: 26px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .card .k { color: var(--muted); font-size: 12px; }
+  .card .v { font-size: 24px; font-weight: 700; margin-top: 4px; }
+  .card .v small { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .links a { background: var(--panel2); border: 1px solid var(--border); color: var(--accent); border-radius: 999px; padding: 6px 14px; font-size: 13px; text-decoration: none; }
+  .links a:hover { border-color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 6px; }
+  th, td { padding: 9px 12px; text-align: left; border-top: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; background: var(--panel2); }
+  tr:hover td { background: rgba(76,194,255,.05); }
+  .lat { color: var(--ok); font-variant-numeric: tabular-nums; }
+  .proto-tcp { color: var(--accent); }
+  .proto-udp { color: var(--warn); }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .pill { background: var(--panel); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
+  .pill b { color: var(--accent); margin-left: 4px; }
+  .note { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+  .empty { color: var(--muted); padding: 30px; text-align: center; }
+  .footer { color: var(--muted); font-size: 12px; margin-top: 24px; text-align: center; }
+  code { font-family: Consolas, monospace; }
+  @media (max-width: 700px) { th, td { padding: 7px 8px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>openvp · 节点监控</h1>
+  <div class="sub">Cloudflare 边缘优选池 + VPN Gate OpenVPN 节点，GitHub Actions 定时刷新</div>
+
+  <h2>☁️ Cloudflare 优选池</h2>
+  <div class="cards" id="pool-cards"></div>
+  <div class="links">
+    <a href="edge_pool.txt">edge_pool.txt</a>
+    <a href="edge_pool.json">edge_pool.json</a>
+    <a href="sub.txt">sub.txt（订阅）</a>
+  </div>
+  <div class="note">延迟最低的前 10 个入口：</div>
+  <table>
+    <thead><tr><th>#</th><th>IP</th><th>端口</th><th>延迟</th></tr></thead>
+    <tbody id="pool-top"></tbody>
+  </table>
+
+  <h2>🔒 OpenVPN 节点</h2>
+  <div class="cards" id="ovpn-cards"></div>
+  <div class="links">
+    <a href="openvpn.zip">openvpn.zip（全部配置）</a>
+    <a href="openvpn.txt">openvpn.txt（索引）</a>
+    <a href="openvpn.yaml">openvpn.yaml（Clash 订阅）</a>
+  </div>
+  <div class="note">按国家分布：</div>
+  <div class="pills" id="ovpn-countries"></div>
+  <table>
+    <thead><tr><th>文件</th><th>国家</th><th>地址</th><th>协议</th></tr></thead>
+    <tbody id="ovpn-list"></tbody>
+  </table>
+
+  <div class="footer">openvp · 数据每 30 分钟（OpenVPN）/ 每周（优选池）自动刷新</div>
+</div>
+
+<script>
+function el(id) { return document.getElementById(id); }
+function fmtTime(s) { return s || '—'; }
+
+fetch('edge_pool.json').then(r => r.json()).then(d => {
+  const es = d.entries || [];
+  el('pool-cards').innerHTML =
+    card('池子 IP 数', es.length) +
+    card('采样数', d.sampled || '—') +
+    card('可用数', d.reachable || '—') +
+    card('更新时间', '<small>' + fmtTime(d.updated_at) + '</small>');
+  el('pool-top').innerHTML = es.slice(0, 10).map((e, i) =>
+    `<tr><td>${i + 1}</td><td><code>${e.ip}</code></td><td>${e.port}</td>` +
+    `<td class="lat">${e.latency_ms} ms</td></tr>`
+  ).join('') || `<tr><td colspan="4" class="empty">暂无数据</td></tr>`;
+}).catch(() => {
+  el('pool-cards').innerHTML = `<div class="empty">优选池数据加载失败</div>`;
+});
+
+fetch('openvpn.json').then(r => r.json()).then(d => {
+  const es = d.entries || [];
+  const cs = d.countries || {};
+  el('ovpn-cards').innerHTML =
+    card('节点数', d.total || es.length) +
+    card('国家数', Object.keys(cs).length) +
+    card('更新时间', '<small>' + fmtTime(d.updated_at) + '</small>');
+  el('ovpn-countries').innerHTML = Object.entries(cs)
+    .sort((a, b) => b[1].count - a[1].count)
+    .map(([code, c]) => `<span class="pill">${c.long || code}<b>${c.count}</b></span>`)
+    .join('') || `<span class="empty">暂无数据</span>`;
+  el('ovpn-list').innerHTML = es.slice(0, 50).map(e =>
+    `<tr><td><code>${e.file}</code></td><td>${e.country_long}</td>` +
+    `<td><code>${e.host}:${e.port}</code></td>` +
+    `<td class="proto-${e.proto}">${e.proto}</td></tr>`
+  ).join('') + (es.length > 50 ? `<tr><td colspan="4" class="empty">…等共 ${es.length} 个，完整清单见 openvpn.txt</td></tr>` : '');
+}).catch(() => {
+  el('ovpn-cards').innerHTML = `<div class="empty">OpenVPN 数据加载失败</div>`;
+});
+
+function card(k, v) {
+  return `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+}
+</script>
+</body>
+</html>
