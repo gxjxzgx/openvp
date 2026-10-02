@@ -20,6 +20,15 @@
 - `openvpn.yaml` — Clash 可直接用的 OpenVPN 订阅（`proxies:` 列表，证书用 YAML 锚点复用）
 - `.github/workflows/refresh.yml` — 优选池：每周日 11:00（北京时间）+ 手动触发
 - `.github/workflows/refresh-ovpn.yml` — OpenVPN：每 30 分钟 + 手动触发
+- `.github/workflows/deploy-pages.yml` — 发布：数据文件更新后自动发到 GitHub Pages
+
+## 访问地址（GitHub Pages，和 gate 一样）
+
+- https://gxjxzgx.github.io/openvp/edge_pool.txt
+- https://gxjxzgx.github.io/openvp/sub.txt
+- https://gxjxzgx.github.io/openvp/openvpn.zip
+- https://gxjxzgx.github.io/openvp/openvpn.txt
+- https://gxjxzgx.github.io/openvp/openvpn.yaml
 
 ## 部署步骤
 
@@ -27,10 +36,12 @@
 2. 仓库 Settings → Secrets and variables → Actions → New repository secret：
    - `EDT_DOMAIN`：你的 edgetunnel 域名（优选池 SNI 测试用）；
    - `EDT_UUID`：你的 edgetunnel UUID（生成 `sub.txt` 用）；
-3. **手动**在 GitHub 网页创建两个 workflow 文件
+3. **手动**在 GitHub 网页创建三个 workflow 文件
    （App 没有 workflows 权限，API 推不上去，内容就是本目录同名文件）：
    - `.github/workflows/refresh.yml`
    - `.github/workflows/refresh-ovpn.yml`
-4. 到 Actions 页各手动点一次 Run workflow，确认生成成功。
+   - `.github/workflows/deploy-pages.yml`
+4. 到 Actions 页手动点一次 Deploy to GitHub Pages（它会自动启用 Pages），
+   之后数据文件每次更新都会自动发布。
 
 说明：本仓库与 `gxjxzgx/gate`（SSTP 节点检测）互不联动，各自独立运行。
