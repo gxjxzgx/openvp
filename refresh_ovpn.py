@@ -27,7 +27,6 @@ import socket
 import sys
 import time
 import urllib.request
-import zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 
@@ -41,9 +40,6 @@ HTTP_TIMEOUT = 30
 
 REMOTE_RE = re.compile(r"^remote\s+(\S+)\s+(\d+)", re.M)
 PROTO_RE = re.compile(r"^proto\s+(\S+)", re.M)
-# zip 包时间戳固定, 内容不变时 git diff 无差异, 避免无意义提交
-ZIP_DATE = (2020, 1, 1, 0, 0, 0)
-
 
 def log(msg):
     print(f"[ovpn] {msg}", flush=True)
@@ -255,37 +251,13 @@ def write_clash_yaml(nodes, out_dir):
 
 
 def write_outputs(nodes, out_dir, checked=None):
+    """只生成 openvpn.yaml (订阅) + openvpn.json (监控页数据)。"""
     os.makedirs(out_dir, exist_ok=True)
     now = datetime.now(BEIJING).strftime("%Y-%m-%d %H:%M")
-    counters = {}
-    index_lines = [
-        "# VPN Gate OpenVPN 节点 (自动刷新, 每 30 分钟重新提取)",
-        f"# 更新时间: {now} (北京时间)",
-        f"# 共 {len(nodes)} 个 (已做 TCP 端口可达检查)",
-        "# 文件名 | 国家 | 连接地址:端口 (协议)",
-        "# 下载 openvpn.zip 解压, 导入客户端即用",
-    ]
-    entries = []
-    for n in nodes:
-        cs = re.sub(r"\W+", "", n["country_short"]) or "XX"
-        counters[cs] = counters.get(cs, 0) + 1
-        fname = f"{cs}-{counters[cs]:02d}.ovpn"
-        entries.append((fname, n))
-        index_lines.append(
-            f"{fname} | {n['country_long']} | {n['remote_host']}:{n['remote_port']} ({n['proto']})"
-        )
-    zip_path = os.path.join(out_dir, "openvpn.zip")
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        for fname, n in entries:
-            zi = zipfile.ZipInfo(fname, date_time=ZIP_DATE)
-            zi.compress_type = zipfile.ZIP_DEFLATED
-            zf.writestr(zi, n["config"])
-    txt_path = os.path.join(out_dir, "openvpn.txt")
-    with open(txt_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(index_lines) + "\n")
+    yaml_path = write_clash_yaml(nodes, out_dir)
     # 监控页用的结构化数据
     countries = {}
-    for fname, n in entries:
+    for n in nodes:
         cs = n["country_short"]
         if cs not in countries:
             countries[cs] = {"long": n["country_long"], "count": 0}
@@ -295,12 +267,11 @@ def write_outputs(nodes, out_dir, checked=None):
         json.dump(
             {
                 "updated_at": now,
-                "total": len(entries),
-                "checked": checked if checked is not None else len(entries),
+                "total": len(nodes),
+                "checked": checked if checked is not None else len(nodes),
                 "countries": countries,
                 "entries": [
                     {
-                        "file": fname,
                         "country_long": n["country_long"],
                         "country_short": n["country_short"],
                         "host": n["remote_host"],
@@ -309,12 +280,12 @@ def write_outputs(nodes, out_dir, checked=None):
                         "latency_ms": n.get("latency_ms"),
                         "ip_type": classify_ip_type(n.get("vg_host", "")),
                     }
-                    for fname, n in entries
+                    for n in nodes
                 ],
             },
             f, ensure_ascii=False, indent=1,
         )
-    return zip_path, txt_path
+    return yaml_path, json_path
 
 
 def main():
@@ -340,10 +311,8 @@ def main():
     if max_n > 0:
         alive = alive[:max_n]
 
-    zip_path, txt_path = write_outputs(alive, out_dir, checked=len(nodes))
-    log(f"已写入 {zip_path} / {txt_path} ({len(alive)} 个节点)")
-    yaml_path = write_clash_yaml(alive, out_dir)
-    log(f"已写入 {yaml_path}")
+    yaml_path, json_path = write_outputs(alive, out_dir, checked=len(nodes))
+    log(f"已写入 {yaml_path} / {json_path} ({len(alive)} 个节点)")
 
 
 if __name__ == "__main__":

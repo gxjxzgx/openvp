@@ -8,7 +8,8 @@ Cloudflare 边缘优选池自动刷新。
           https://www.cloudflare.com/ips-v6
 流程   : 拉取 IP 段 -> 随机采样 -> 并发测 443 端口 TLS 握手延迟
           (SNI = 自己的域名, 握手成功即证明该 IP 是可用 CF 边缘)
-          -> 按延迟排序取前 POOL_SIZE 个 -> 写入 edge_pool.txt / edge_pool.json
+          -> 按延迟排序取前 POOL_SIZE 个 -> 写入 edge_pool.json (监控页用)
+          -> 生成 sub.txt (vless 明文订阅) / clash.yaml (Clash 订阅)
 
 只用标准库, 无第三方依赖。
 
@@ -100,11 +101,6 @@ def sample_ips(nets, count, v6_ratio=0.15):
                     picked.add(str(ip))
                     break
     return sorted(picked)
-
-
-def fmt_entry(ip):
-    """IP:443, IPv6 加方括号避免歧义。"""
-    return f"[{ip}]:443" if ":" in ip else f"{ip}:443"
 
 
 def test_one(ip, sni, timeout):
@@ -206,15 +202,7 @@ def main():
         log(f"  {ip}:443  {ms}ms")
 
     now = datetime.now(BEIJING).strftime("%Y-%m-%d %H:%M")
-    txt_path = os.path.join(out_dir, "edge_pool.txt")
-    with open(txt_path, "w", encoding="utf-8") as f:
-        f.write(f"# Cloudflare 边缘优选池 (自动刷新)\n")
-        f.write(f"# 更新时间: {now} (北京时间)\n")
-        f.write(f"# 数据源: cloudflare.com/ips-v4 + ips-v6, 采样 {len(ips)} 测得可用 {len(ok)}, 取最快 {len(picked)}\n")
-        f.write(f"# 格式: IP:443, 每行一个, 可直接用作 edgetunnel 自定义优选\n")
-        for ip, _ in picked:
-            f.write(f"{fmt_entry(ip)}\n")
-
+    # edge_pool.json 只供监控页用, 不对外发布下载
     json_path = os.path.join(out_dir, "edge_pool.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(
@@ -230,14 +218,12 @@ def main():
             },
             f, ensure_ascii=False, indent=2,
         )
-    log(f"已写入 {txt_path} / {json_path}")
+    log(f"已写入 {json_path} (仅供监控页)")
 
     # 5/4 可选: 生成 vless 订阅 (每个池子 IP 一条直连节点)
-    #   link.txt 明文链接, sub.txt 为其 base64 (标准订阅格式),
-    #   clash.yaml Clash 订阅 (proxies 列表)
+    #   sub.txt 明文链接 (连接格式), clash.yaml Clash 订阅 (proxies 列表)
     uuid = os.environ.get("EDT_UUID", "").strip()
     if uuid and uuid != "REPLACE_WITH_YOUR_EDT_UUID":
-        import base64 as _b64
         sub_path_override = os.environ.get("SUB_PATH", "").strip()
         fp = os.environ.get("SUB_FP", "chrome")
         prefix = os.environ.get("SUB_PREFIX", "").strip()
@@ -257,15 +243,12 @@ def main():
                 f"&type=ws&host={sni}&fp={fp}&sni={sni}"
                 f"&path={quote(ws_path, safe='')}#{quote(name, safe='')}"
             )
-        link_path = os.path.join(out_dir, "link.txt")
-        with open(link_path, "w", encoding="utf-8") as f:
-            f.write("# Cloudflare 边缘优选节点 (vless:// 明文, 自动刷新)\n")
+        sub_path = os.path.join(out_dir, "sub.txt")
+        with open(sub_path, "w", encoding="utf-8") as f:
+            f.write("# Cloudflare 边缘优选订阅 (vless:// 明文, 自动刷新)\n")
             f.write(f"# 更新时间: {now} (北京时间)\n")
             f.write(f"# 每个池子 IP 一条直连节点, SNI={sni}, 共 {len(picked)} 个\n")
             f.write("\n".join(link_lines) + "\n")
-        sub_path = os.path.join(out_dir, "sub.txt")
-        with open(sub_path, "w", encoding="utf-8") as f:
-            f.write(_b64.b64encode(("\n".join(link_lines) + "\n").encode("utf-8")).decode("ascii"))
         clash_path = os.path.join(out_dir, "clash.yaml")
         with open(clash_path, "w", encoding="utf-8") as f:
             f.write("# Cloudflare 边缘优选 Clash 订阅 (自动刷新)\n")
@@ -289,9 +272,9 @@ def main():
                 f.write("    ech-opts:\n")
                 f.write("      enable: true\n")
                 f.write("      query-server-name: cloudflare-ech.com\n")
-        log(f"已写入 {link_path} / {sub_path} / {clash_path} ({len(picked)} 个节点)")
+        log(f"已写入 {sub_path} / {clash_path} ({len(picked)} 个节点)")
     else:
-        log("未设置 EDT_UUID, 跳过 link.txt/sub.txt/clash.yaml 生成")
+        log("未设置 EDT_UUID, 跳过 sub.txt/clash.yaml 生成")
 
 
 if __name__ == "__main__":
