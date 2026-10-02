@@ -1,8 +1,8 @@
 proxies:
-  - name: "🏠 CN-家宽-01"
+  - name: "🏠 AU-家宽-01"
     type: openvpn
-    server: 219.147.27.214
-    port: 5555
+    server: 124.148.215.45
+    port: 1222
     proto: tcp
     username: vpn
     password: vpn
@@ -91,10 +91,44 @@ proxies:
       wmE9Mmlbq1emDeROivjCfoGhR3kZXW1pTKlLh6ZMUQUOpptdXva8XxfoqQwa3enA
       M7muBbF0XN7VO80iJPv+PmIZdEIAkpwKfi201YB+BafCIuGxIF50Vg==
       -----END RSA PRIVATE KEY-----
-  - name: "🏠 IN-家宽-01"
+  - name: "🏠 CN-家宽-01"
     type: openvpn
-    server: 103.172.220.133
-    port: 995
+    server: 103.230.213.253
+    port: 8843
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 FI-家宽-01"
+    type: openvpn
+    server: 87.95.239.161
+    port: 1562
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 GD-家宽-01"
+    type: openvpn
+    server: 74.122.88.200
+    port: 443
     proto: tcp
     username: vpn
     password: vpn
@@ -127,8 +161,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-02"
     type: openvpn
-    server: 111.111.5.138
-    port: 1662
+    server: 118.103.134.176
+    port: 1816
     proto: tcp
     username: vpn
     password: vpn
@@ -144,8 +178,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-03"
     type: openvpn
-    server: 115.179.206.241
-    port: 443
+    server: 118.241.184.72
+    port: 1306
     proto: tcp
     username: vpn
     password: vpn
@@ -161,8 +195,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-04"
     type: openvpn
-    server: 116.94.25.94
-    port: 1507
+    server: 124.209.252.26
+    port: 1663
     proto: tcp
     username: vpn
     password: vpn
@@ -178,8 +212,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-05"
     type: openvpn
-    server: 118.104.73.196
-    port: 1289
+    server: 124.47.74.132
+    port: 1620
     proto: tcp
     username: vpn
     password: vpn
@@ -195,8 +229,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-06"
     type: openvpn
-    server: 119.175.209.196
-    port: 1350
+    server: 125.8.222.245
+    port: 1549
     proto: tcp
     username: vpn
     password: vpn
@@ -212,8 +246,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-07"
     type: openvpn
-    server: 124.246.174.153
-    port: 1375
+    server: 126.227.1.244
+    port: 1896
     proto: tcp
     username: vpn
     password: vpn
@@ -229,8 +263,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-08"
     type: openvpn
-    server: 124.247.181.10
-    port: 1989
+    server: 128.28.75.25
+    port: 1698
     proto: tcp
     username: vpn
     password: vpn
@@ -246,8 +280,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-09"
     type: openvpn
-    server: 126.109.119.89
-    port: 1209
+    server: 131.129.111.192
+    port: 1298
     proto: tcp
     username: vpn
     password: vpn
@@ -263,8 +297,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-10"
     type: openvpn
-    server: 126.218.208.124
-    port: 1334
+    server: 14.132.50.118
+    port: 1559
     proto: tcp
     username: vpn
     password: vpn
@@ -280,8 +314,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-11"
     type: openvpn
-    server: 126.54.0.170
-    port: 1661
+    server: 144.91.160.37
+    port: 1877
     proto: tcp
     username: vpn
     password: vpn
@@ -297,8 +331,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-12"
     type: openvpn
-    server: 126.77.139.139
-    port: 1852
+    server: 153.134.150.194
+    port: 1397
     proto: tcp
     username: vpn
     password: vpn
@@ -314,8 +348,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-13"
     type: openvpn
-    server: 126.77.197.226
-    port: 1386
+    server: 153.225.105.13
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -331,8 +365,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-14"
     type: openvpn
-    server: 126.80.103.83
-    port: 1875
+    server: 175.129.117.170
+    port: 1213
     proto: tcp
     username: vpn
     password: vpn
@@ -348,8 +382,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-15"
     type: openvpn
-    server: 180.22.47.229
-    port: 1691
+    server: 202.224.30.208
+    port: 1812
     proto: tcp
     username: vpn
     password: vpn
@@ -365,8 +399,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-16"
     type: openvpn
-    server: 203.135.222.61
-    port: 1355
+    server: 210.198.250.157
+    port: 1895
     proto: tcp
     username: vpn
     password: vpn
@@ -382,8 +416,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-17"
     type: openvpn
-    server: 203.180.76.87
-    port: 1866
+    server: 218.228.192.151
+    port: 1240
     proto: tcp
     username: vpn
     password: vpn
@@ -399,8 +433,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-18"
     type: openvpn
-    server: 218.46.210.43
-    port: 1792
+    server: 219.100.37.102
+    port: 443
     proto: tcp
     username: vpn
     password: vpn
@@ -416,7 +450,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-19"
     type: openvpn
-    server: 219.100.37.1
+    server: 219.100.37.117
     port: 443
     proto: tcp
     username: vpn
@@ -433,7 +467,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-20"
     type: openvpn
-    server: 219.100.37.11
+    server: 219.100.37.121
     port: 443
     proto: tcp
     username: vpn
@@ -450,7 +484,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-21"
     type: openvpn
-    server: 219.100.37.121
+    server: 219.100.37.194
     port: 443
     proto: tcp
     username: vpn
@@ -467,7 +501,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-22"
     type: openvpn
-    server: 219.100.37.122
+    server: 219.100.37.20
     port: 443
     proto: tcp
     username: vpn
@@ -484,7 +518,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-23"
     type: openvpn
-    server: 219.100.37.168
+    server: 219.100.37.200
     port: 443
     proto: tcp
     username: vpn
@@ -501,7 +535,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-24"
     type: openvpn
-    server: 219.100.37.200
+    server: 219.100.37.216
     port: 443
     proto: tcp
     username: vpn
@@ -518,7 +552,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-25"
     type: openvpn
-    server: 219.100.37.214
+    server: 219.100.37.224
     port: 443
     proto: tcp
     username: vpn
@@ -535,7 +569,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-26"
     type: openvpn
-    server: 219.100.37.225
+    server: 219.100.37.4
     port: 443
     proto: tcp
     username: vpn
@@ -552,7 +586,7 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-27"
     type: openvpn
-    server: 219.100.37.24
+    server: 219.100.37.81
     port: 443
     proto: tcp
     username: vpn
@@ -569,8 +603,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-28"
     type: openvpn
-    server: 219.100.37.31
-    port: 443
+    server: 219.28.202.187
+    port: 1504
     proto: tcp
     username: vpn
     password: vpn
@@ -586,8 +620,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-29"
     type: openvpn
-    server: 219.100.37.32
-    port: 443
+    server: 39.111.27.166
+    port: 1401
     proto: tcp
     username: vpn
     password: vpn
@@ -603,8 +637,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-30"
     type: openvpn
-    server: 219.100.37.63
-    port: 443
+    server: 59.168.176.131
+    port: 1876
     proto: tcp
     username: vpn
     password: vpn
@@ -620,8 +654,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-31"
     type: openvpn
-    server: 219.100.37.8
-    port: 443
+    server: 60.237.208.112
+    port: 1392
     proto: tcp
     username: vpn
     password: vpn
@@ -637,8 +671,8 @@ proxies:
     key: *jkkey
   - name: "🏠 JP-家宽-32"
     type: openvpn
-    server: 219.100.37.81
-    port: 443
+    server: 60.98.34.211
+    port: 1814
     proto: tcp
     username: vpn
     password: vpn
@@ -653,193 +687,6 @@ proxies:
     cert: *jkcert
     key: *jkkey
   - name: "🏠 JP-家宽-33"
-    type: openvpn
-    server: 219.100.37.85
-    port: 443
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-34"
-    type: openvpn
-    server: 219.100.37.86
-    port: 443
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-35"
-    type: openvpn
-    server: 220.109.46.143
-    port: 1768
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-36"
-    type: openvpn
-    server: 59.138.139.69
-    port: 1242
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-37"
-    type: openvpn
-    server: 60.103.252.159
-    port: 1991
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-38"
-    type: openvpn
-    server: 60.106.128.206
-    port: 1674
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-39"
-    type: openvpn
-    server: 60.127.31.208
-    port: 1283
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-40"
-    type: openvpn
-    server: 60.127.7.109
-    port: 1417
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-41"
-    type: openvpn
-    server: 60.62.115.247
-    port: 1649
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-42"
-    type: openvpn
-    server: 60.65.241.137
-    port: 1325
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-43"
-    type: openvpn
-    server: 60.86.217.41
-    port: 1206
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 JP-家宽-44"
     type: openvpn
     server: 61.11.207.28
     port: 1938
@@ -856,10 +703,44 @@ proxies:
     ca: *jkca
     cert: *jkcert
     key: *jkkey
+  - name: "🏠 JP-家宽-34"
+    type: openvpn
+    server: 92.203.145.114
+    port: 1586
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 JP-家宽-35"
+    type: openvpn
+    server: 92.203.90.42
+    port: 1973
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
   - name: "🏠 KR-家宽-01"
     type: openvpn
-    server: 112.223.241.142
-    port: 1878
+    server: 116.38.204.174
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -875,8 +756,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-02"
     type: openvpn
-    server: 116.37.252.7
-    port: 1250
+    server: 121.162.159.115
+    port: 1724
     proto: tcp
     username: vpn
     password: vpn
@@ -892,8 +773,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-03"
     type: openvpn
-    server: 119.149.247.192
-    port: 1261
+    server: 121.169.84.40
+    port: 443
     proto: tcp
     username: vpn
     password: vpn
@@ -909,8 +790,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-04"
     type: openvpn
-    server: 119.70.219.13
-    port: 1529
+    server: 121.173.217.186
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -926,7 +807,7 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-05"
     type: openvpn
-    server: 121.165.121.91
+    server: 121.181.97.45
     port: 995
     proto: tcp
     username: vpn
@@ -943,8 +824,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-06"
     type: openvpn
-    server: 123.143.79.15
-    port: 1980
+    server: 125.134.5.242
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -960,8 +841,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-07"
     type: openvpn
-    server: 125.140.60.105
-    port: 995
+    server: 125.140.216.198
+    port: 1925
     proto: tcp
     username: vpn
     password: vpn
@@ -977,7 +858,7 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-08"
     type: openvpn
-    server: 125.143.74.228
+    server: 14.38.245.86
     port: 995
     proto: tcp
     username: vpn
@@ -994,8 +875,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-09"
     type: openvpn
-    server: 14.32.251.62
-    port: 995
+    server: 14.42.230.125
+    port: 1915
     proto: tcp
     username: vpn
     password: vpn
@@ -1011,8 +892,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-10"
     type: openvpn
-    server: 14.53.186.242
-    port: 995
+    server: 175.200.114.190
+    port: 1546
     proto: tcp
     username: vpn
     password: vpn
@@ -1045,40 +926,6 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-12"
     type: openvpn
-    server: 180.224.138.10
-    port: 1918
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 KR-家宽-13"
-    type: openvpn
-    server: 182.224.56.65
-    port: 1792
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 KR-家宽-14"
-    type: openvpn
     server: 183.98.13.38
     port: 1203
     proto: tcp
@@ -1094,10 +941,44 @@ proxies:
     ca: *jkca
     cert: *jkcert
     key: *jkkey
+  - name: "🏠 KR-家宽-13"
+    type: openvpn
+    server: 210.179.125.247
+    port: 995
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 KR-家宽-14"
+    type: openvpn
+    server: 211.107.180.137
+    port: 995
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
   - name: "🏠 KR-家宽-15"
     type: openvpn
-    server: 203.229.159.5
-    port: 1643
+    server: 211.184.24.38
+    port: 1400
     proto: tcp
     username: vpn
     password: vpn
@@ -1113,8 +994,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-16"
     type: openvpn
-    server: 211.109.4.154
-    port: 1823
+    server: 211.196.123.188
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -1147,8 +1028,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-18"
     type: openvpn
-    server: 218.159.1.213
-    port: 1745
+    server: 220.77.97.83
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -1164,8 +1045,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-19"
     type: openvpn
-    server: 221.150.225.239
-    port: 995
+    server: 221.145.15.42
+    port: 1257
     proto: tcp
     username: vpn
     password: vpn
@@ -1181,7 +1062,7 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-20"
     type: openvpn
-    server: 221.163.29.204
+    server: 221.163.145.16
     port: 995
     proto: tcp
     username: vpn
@@ -1198,8 +1079,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-21"
     type: openvpn
-    server: 222.120.134.151
-    port: 1918
+    server: 59.10.57.184
+    port: 1930
     proto: tcp
     username: vpn
     password: vpn
@@ -1215,8 +1096,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-22"
     type: openvpn
-    server: 58.235.79.150
-    port: 995
+    server: 59.12.10.87
+    port: 1471
     proto: tcp
     username: vpn
     password: vpn
@@ -1232,8 +1113,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-23"
     type: openvpn
-    server: 59.3.169.228
-    port: 1712
+    server: 61.254.51.18
+    port: 995
     proto: tcp
     username: vpn
     password: vpn
@@ -1249,25 +1130,8 @@ proxies:
     key: *jkkey
   - name: "🏠 KR-家宽-24"
     type: openvpn
-    server: 59.6.232.26
-    port: 995
-    proto: tcp
-    username: vpn
-    password: vpn
-    cipher: AES-128-CBC
-    auth: SHA1
-    udp: false
-    handshake-timeout: 30
-    remote-dns-resolve: true
-    dns: [ 8.8.8.8, 1.1.1.1 ]
-
-    ca: *jkca
-    cert: *jkcert
-    key: *jkkey
-  - name: "🏠 MM-家宽-01"
-    type: openvpn
-    server: 103.198.148.130
-    port: 995
+    server: 61.75.220.31
+    port: 1593
     proto: tcp
     username: vpn
     password: vpn
@@ -1300,8 +1164,8 @@ proxies:
     key: *jkkey
   - name: "🏠 RU-家宽-01"
     type: openvpn
-    server: 212.20.44.70
-    port: 1463
+    server: 178.187.40.147
+    port: 1693
     proto: tcp
     username: vpn
     password: vpn
@@ -1317,8 +1181,42 @@ proxies:
     key: *jkkey
   - name: "🏠 RU-家宽-02"
     type: openvpn
-    server: 78.140.43.226
-    port: 1980
+    server: 77.35.35.72
+    port: 1965
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 RU-家宽-03"
+    type: openvpn
+    server: 88.147.239.81
+    port: 1494
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 RU-家宽-04"
+    type: openvpn
+    server: 94.78.229.198
+    port: 1596
     proto: tcp
     username: vpn
     password: vpn
@@ -1334,8 +1232,76 @@ proxies:
     key: *jkkey
   - name: "🏠 TH-家宽-01"
     type: openvpn
-    server: 223.205.88.237
-    port: 1289
+    server: 223.206.37.98
+    port: 1900
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 TH-家宽-02"
+    type: openvpn
+    server: 27.130.166.25
+    port: 1776
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 TH-家宽-03"
+    type: openvpn
+    server: 58.136.181.248
+    port: 1657
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 VN-家宽-01"
+    type: openvpn
+    server: 42.114.3.246
+    port: 1521
+    proto: tcp
+    username: vpn
+    password: vpn
+    cipher: AES-128-CBC
+    auth: SHA1
+    udp: false
+    handshake-timeout: 30
+    remote-dns-resolve: true
+    dns: [ 8.8.8.8, 1.1.1.1 ]
+
+    ca: *jkca
+    cert: *jkcert
+    key: *jkkey
+  - name: "🏠 VN-家宽-02"
+    type: openvpn
+    server: 58.187.167.175
+    port: 1492
     proto: tcp
     username: vpn
     password: vpn
