@@ -240,7 +240,7 @@ def main():
         prefix = os.environ.get("SUB_PREFIX", "").strip()
         sub_path = os.path.join(out_dir, "sub.txt")
         counters = {}
-        proxy_ips = ",".join(ip for ip, _ in picked)
+        proxy_ips = ",".join(ip for ip, _ in random.sample(picked, min(8, len(picked))))
         with open(sub_path, "w", encoding="utf-8") as f:
             f.write("# Cloudflare 边缘优选订阅 (vless://, 自动刷新)\n")
             f.write(f"# 更新时间: {now} (北京时间)\n")
