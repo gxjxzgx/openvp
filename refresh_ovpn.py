@@ -254,7 +254,7 @@ def write_clash_yaml(nodes, out_dir):
     return path
 
 
-def write_outputs(nodes, out_dir):
+def write_outputs(nodes, out_dir, checked=None):
     os.makedirs(out_dir, exist_ok=True)
     now = datetime.now(BEIJING).strftime("%Y-%m-%d %H:%M")
     counters = {}
@@ -296,6 +296,7 @@ def write_outputs(nodes, out_dir):
             {
                 "updated_at": now,
                 "total": len(entries),
+                "checked": checked if checked is not None else len(entries),
                 "countries": countries,
                 "entries": [
                     {
@@ -339,7 +340,7 @@ def main():
     if max_n > 0:
         alive = alive[:max_n]
 
-    zip_path, txt_path = write_outputs(alive, out_dir)
+    zip_path, txt_path = write_outputs(alive, out_dir, checked=len(nodes))
     log(f"已写入 {zip_path} / {txt_path} ({len(alive)} 个节点)")
     yaml_path = write_clash_yaml(alive, out_dir)
     log(f"已写入 {yaml_path}")

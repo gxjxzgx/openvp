@@ -119,8 +119,9 @@ const ZH = {
 };
 function zhCountry(en) { return ZH[en] || en; }
 
-function card(k, v) {
-  return '<div class="card"><div class="k">' + k + '</div><div class="v">' + v + '</div></div>';
+function card(k, v, sub) {
+  return '<div class="card"><div class="k">' + k + '</div><div class="v">' + v + '</div>' +
+    (sub ? '<div class="k">' + sub + '</div>' : '') + '</div>';
 }
 
 function renderPool() {
@@ -153,9 +154,13 @@ function renderOvpn() {
     return;
   }
   const es = d.entries || [];
+  const res = es.filter(function (e) { return e.ip_type === 'residential'; }).length;
+  const dc = es.filter(function (e) { return e.ip_type === 'datacenter'; }).length;
   document.getElementById('ovpn-cards').innerHTML =
-    card('节点数', d.total || es.length) +
-    card('国家数', Object.keys(d.countries || {}).length) +
+    card('节点数量', d.checked || es.length) +
+    card('可用数量', d.total || es.length) +
+    card('国家数量', Object.keys(d.countries || {}).length) +
+    card('住宅 / 机房 (估算)', res, '机房 ' + dc) +
     card('更新时间', '<small>' + (d.updated_at || '—') + '</small>');
 
   const groups = {};
