@@ -1,13 +1,22 @@
-name: Refresh CF Edge Pool
+name: Refresh and Deploy
 
-# 每周日 11:00 (北京时间) 自动刷新一次, 也支持手动触发
+# 每 30 分钟运行一次:
+#  - OpenVPN 节点: 每次都刷新
+#  - CF 优选池: 仅周日 11:00 (北京时间) 或手动触发时刷新
+# 刷新后自动发布到 GitHub Pages
 on:
   schedule:
-    - cron: "3 3 * * 0"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: openvp
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -19,21 +28,33 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh edge pool
+      - name: Extract OpenVPN nodes
+        env:
+          OVPN_CHECK_TIMEOUT: "5"
+          OVPN_WORKERS: "32"
+        run: python refresh_ovpn.py
+
+      - name: Refresh edge pool (Sundays 11:00 Beijing / manual only)
         env:
           EDT_DOMAIN: ${{ secrets.EDT_DOMAIN }}
           EDT_UUID: ${{ secrets.EDT_UUID }}
           POOL_SIZE: "40"
           SAMPLE_SIZE: "300"
-        run: python refresh_pool.py
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%w%H)" = "003" ]; then
+            echo "执行优选池刷新"
+            python refresh_pool.py
+          else
+            echo "跳过优选池刷新 (仅周日 11:00 北京时间执行)"
+          fi
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add edge_pool.txt edge_pool.json sub.txt
-          git diff --cached --quiet && echo "池子无变化, 跳过提交" && exit 0
-          git commit -m "chore: refresh edge pool $(date -u +%Y-%m-%d)"
+          git add edge_pool.txt edge_pool.json sub.txt openvpn.zip openvpn.txt openvpn.yaml openvpn.json
+          git diff --cached --quiet && echo "无变化, 跳过提交" && exit 0
+          git commit -m "chore: refresh $(date -u +%Y-%m-%dT%H:%M)"
           for i in 1 2 3 4 5; do
             git rebase --abort 2>/dev/null || true
             if git pull --rebase origin main && git push; then
@@ -44,3 +65,25 @@ jobs:
             sleep 5
             [ "$i" = "5" ] && echo "推送失败" && exit 1
           done
+
+      - name: Prepare site
+        run: |
+          mkdir -p site
+          for f in edge_pool.txt edge_pool.json sub.txt openvpn.zip openvpn.txt openvpn.yaml openvpn.json; do
+            [ -f "$f" ] && cp "$f" site/ && echo "已加入: $f"
+          done
+          [ -f web/index.html ] && cp web/index.html site/index.html && echo "已加入: index.html"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
