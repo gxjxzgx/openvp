@@ -25,6 +25,7 @@ import os
 import re
 import socket
 import sys
+import time
 import urllib.request
 import zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -148,6 +149,7 @@ def extract_nodes(rows):
         nodes.append({
             "country_long": r.get("country_long", ""),
             "country_short": r.get("country_short", ""),
+            "vg_host": r.get("host", ""),
             "remote_host": rh,
             "remote_port": rp,
             "proto": proto,
@@ -157,11 +159,12 @@ def extract_nodes(rows):
 
 
 def tcp_ok(node, timeout):
+    t0 = time.time()
     try:
         with socket.create_connection((node["remote_host"], node["remote_port"]), timeout=timeout):
-            return True
+            return True, int((time.time() - t0) * 1000)
     except Exception:
-        return False
+        return False, None
 
 
 def check_nodes(nodes, timeout, workers):
@@ -169,10 +172,23 @@ def check_nodes(nodes, timeout, workers):
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = {pool.submit(tcp_ok, n, timeout): n for n in nodes}
         for fut in as_completed(futs):
-            if fut.result():
-                alive.append(futs[fut])
+            ok, ms = fut.result()
+            if ok:
+                n = futs[fut]
+                n["latency_ms"] = ms
+                alive.append(n)
     alive.sort(key=lambda n: (n["country_short"], n["remote_host"], n["remote_port"]))
     return alive
+
+
+def classify_ip_type(vg_host):
+    """按 VPN Gate 主机名前缀估算 IP 类型 (与 gate 的第三层启发规则一致)。"""
+    h = (vg_host or "").lower()
+    if h.startswith("public-vpn"):
+        return "datacenter"
+    if re.match(r"^vpn\d+", h):
+        return "residential"
+    return "unknown"
 
 
 def pem_block(cfg, tag):
@@ -289,6 +305,8 @@ def write_outputs(nodes, out_dir):
                         "host": n["remote_host"],
                         "port": n["remote_port"],
                         "proto": n["proto"],
+                        "latency_ms": n.get("latency_ms"),
+                        "ip_type": classify_ip_type(n.get("vg_host", "")),
                     }
                     for fname, n in entries
                 ],
