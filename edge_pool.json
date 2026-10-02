@@ -1,0 +1,61 @@
+{
+  "updated_at": "2026-10-02 20:01",
+  "source": [
+    "https://www.cloudflare.com/ips-v4",
+    "https://www.cloudflare.com/ips-v6"
+  ],
+  "sampled": 120,
+  "reachable": 10,
+  "entries": [
+    {
+      "ip": "104.17.130.185",
+      "port": 443,
+      "latency_ms": 7725.6
+    },
+    {
+      "ip": "104.27.104.78",
+      "port": 443,
+      "latency_ms": 8894.7
+    },
+    {
+      "ip": "104.16.71.39",
+      "port": 443,
+      "latency_ms": 8936.2
+    },
+    {
+      "ip": "172.67.225.89",
+      "port": 443,
+      "latency_ms": 9001.1
+    },
+    {
+      "ip": "172.67.117.72",
+      "port": 443,
+      "latency_ms": 9327.9
+    },
+    {
+      "ip": "172.67.147.12",
+      "port": 443,
+      "latency_ms": 9537.2
+    },
+    {
+      "ip": "172.64.67.144",
+      "port": 443,
+      "latency_ms": 9538.8
+    },
+    {
+      "ip": "172.64.231.156",
+      "port": 443,
+      "latency_ms": 9604.3
+    },
+    {
+      "ip": "162.159.40.3",
+      "port": 443,
+      "latency_ms": 9972.9
+    },
+    {
+      "ip": "104.19.227.161",
+      "port": 443,
+      "latency_ms": 10269.5
+    }
+  ]
+}
