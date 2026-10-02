@@ -1,14 +1,19 @@
 {
- "updated_at": "2026-10-02 22:19",
- "total": 59,
+ "updated_at": "2026-10-02 22:29",
+ "total": 71,
+ "checked": 99,
  "countries": {
+  "FI": {
+   "long": "Finland",
+   "count": 1
+  },
   "JP": {
    "long": "Japan",
-   "count": 31
+   "count": 40
   },
   "KR": {
    "long": "Korea Republic of",
-   "count": 18
+   "count": 24
   },
   "RO": {
    "long": "Romania",
@@ -16,510 +21,658 @@
   },
   "RU": {
    "long": "Russian Federation",
-   "count": 2
-  },
-  "TH": {
-   "long": "Thailand",
-   "count": 1
-  },
-  "US": {
-   "long": "United States",
-   "count": 4
-  },
-  "VN": {
-   "long": "Viet Nam",
-   "count": 2
+   "count": 5
   }
  },
  "entries": [
   {
+   "file": "FI-01.ovpn",
+   "country_long": "Finland",
+   "country_short": "FI",
+   "host": "87.95.239.161",
+   "port": 1562,
+   "proto": "tcp",
+   "latency_ms": 149,
+   "ip_type": "residential"
+  },
+  {
    "file": "JP-01.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "106.153.16.152",
-   "port": 1764,
+   "host": "106.167.141.154",
+   "port": 1437,
    "proto": "tcp",
-   "latency_ms": 175,
+   "latency_ms": 118,
    "ip_type": "residential"
   },
   {
    "file": "JP-02.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "110.163.135.206",
-   "port": 1194,
+   "host": "113.154.3.100",
+   "port": 1754,
    "proto": "tcp",
-   "latency_ms": 152,
-   "ip_type": "unknown"
+   "latency_ms": 127,
+   "ip_type": "residential"
   },
   {
    "file": "JP-03.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "114.178.90.182",
-   "port": 1891,
+   "host": "114.164.96.126",
+   "port": 1674,
    "proto": "tcp",
-   "latency_ms": 140,
+   "latency_ms": 116,
    "ip_type": "residential"
   },
   {
    "file": "JP-04.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "118.104.250.157",
-   "port": 1266,
+   "host": "114.178.90.182",
+   "port": 1891,
    "proto": "tcp",
-   "latency_ms": 140,
+   "latency_ms": 115,
    "ip_type": "residential"
   },
   {
    "file": "JP-05.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "121.3.173.85",
-   "port": 1263,
+   "host": "117.109.39.10",
+   "port": 1547,
    "proto": "tcp",
-   "latency_ms": 141,
+   "latency_ms": 120,
    "ip_type": "residential"
   },
   {
    "file": "JP-06.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "124.143.133.244",
-   "port": 1585,
+   "host": "118.154.11.119",
+   "port": 1720,
    "proto": "tcp",
-   "latency_ms": 146,
+   "latency_ms": 113,
    "ip_type": "residential"
   },
   {
    "file": "JP-07.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "175.177.195.207",
-   "port": 1883,
+   "host": "118.154.90.235",
+   "port": 1332,
    "proto": "tcp",
-   "latency_ms": 147,
+   "latency_ms": 112,
    "ip_type": "residential"
   },
   {
    "file": "JP-08.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.103",
-   "port": 443,
+   "host": "118.82.55.107",
+   "port": 1290,
    "proto": "tcp",
-   "latency_ms": 140,
-   "ip_type": "datacenter"
+   "latency_ms": 131,
+   "ip_type": "residential"
   },
   {
    "file": "JP-09.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.105",
-   "port": 443,
+   "host": "118.83.248.141",
+   "port": 1760,
    "proto": "tcp",
-   "latency_ms": 141,
-   "ip_type": "datacenter"
+   "latency_ms": 187,
+   "ip_type": "residential"
   },
   {
    "file": "JP-10.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.115",
-   "port": 443,
+   "host": "119.26.188.175",
+   "port": 1624,
    "proto": "tcp",
-   "latency_ms": 133,
-   "ip_type": "datacenter"
+   "latency_ms": 143,
+   "ip_type": "residential"
   },
   {
    "file": "JP-11.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.161",
-   "port": 443,
+   "host": "120.51.70.76",
+   "port": 1868,
    "proto": "tcp",
-   "latency_ms": 135,
-   "ip_type": "datacenter"
+   "latency_ms": 144,
+   "ip_type": "residential"
   },
   {
    "file": "JP-12.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.170",
-   "port": 443,
+   "host": "121.105.128.22",
+   "port": 1860,
    "proto": "tcp",
-   "latency_ms": 134,
-   "ip_type": "datacenter"
+   "latency_ms": 132,
+   "ip_type": "residential"
   },
   {
    "file": "JP-13.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.189",
-   "port": 443,
+   "host": "121.115.212.188",
+   "port": 1554,
    "proto": "tcp",
-   "latency_ms": 135,
-   "ip_type": "datacenter"
+   "latency_ms": 130,
+   "ip_type": "residential"
   },
   {
    "file": "JP-14.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.193",
-   "port": 443,
+   "host": "124.98.189.166",
+   "port": 1663,
    "proto": "tcp",
-   "latency_ms": 143,
-   "ip_type": "datacenter"
+   "latency_ms": 134,
+   "ip_type": "residential"
   },
   {
    "file": "JP-15.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.20",
-   "port": 443,
+   "host": "125.14.182.207",
+   "port": 1956,
    "proto": "tcp",
-   "latency_ms": 134,
-   "ip_type": "datacenter"
+   "latency_ms": 1117,
+   "ip_type": "residential"
   },
   {
    "file": "JP-16.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.211",
-   "port": 443,
+   "host": "126.121.149.77",
+   "port": 1351,
    "proto": "tcp",
-   "latency_ms": 145,
-   "ip_type": "datacenter"
+   "latency_ms": 125,
+   "ip_type": "residential"
   },
   {
    "file": "JP-17.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.214",
-   "port": 443,
+   "host": "126.37.15.22",
+   "port": 1245,
    "proto": "tcp",
-   "latency_ms": 134,
-   "ip_type": "datacenter"
+   "latency_ms": 132,
+   "ip_type": "residential"
   },
   {
    "file": "JP-18.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.217",
-   "port": 443,
+   "host": "133.114.158.248",
+   "port": 1910,
    "proto": "tcp",
-   "latency_ms": 142,
-   "ip_type": "datacenter"
+   "latency_ms": 112,
+   "ip_type": "residential"
   },
   {
    "file": "JP-19.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.25",
-   "port": 443,
+   "host": "14.3.225.237",
+   "port": 1912,
    "proto": "tcp",
-   "latency_ms": 142,
-   "ip_type": "datacenter"
+   "latency_ms": 127,
+   "ip_type": "residential"
   },
   {
    "file": "JP-20.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.32",
-   "port": 443,
+   "host": "153.211.162.136",
+   "port": 1398,
    "proto": "tcp",
-   "latency_ms": 141,
-   "ip_type": "datacenter"
+   "latency_ms": 119,
+   "ip_type": "residential"
   },
   {
    "file": "JP-21.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.4",
-   "port": 443,
+   "host": "175.132.47.61",
+   "port": 1496,
    "proto": "tcp",
-   "latency_ms": 141,
-   "ip_type": "datacenter"
+   "latency_ms": 113,
+   "ip_type": "residential"
   },
   {
    "file": "JP-22.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.82",
-   "port": 443,
+   "host": "180.235.46.222",
+   "port": 1937,
    "proto": "tcp",
-   "latency_ms": 135,
-   "ip_type": "datacenter"
+   "latency_ms": 140,
+   "ip_type": "residential"
   },
   {
    "file": "JP-23.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.100.37.88",
-   "port": 443,
+   "host": "183.91.108.16",
+   "port": 1262,
    "proto": "tcp",
-   "latency_ms": 140,
-   "ip_type": "datacenter"
+   "latency_ms": 113,
+   "ip_type": "residential"
   },
   {
    "file": "JP-24.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.115.98.213",
-   "port": 1555,
+   "host": "202.224.30.208",
+   "port": 1812,
    "proto": "tcp",
-   "latency_ms": 163,
+   "latency_ms": 116,
    "ip_type": "residential"
   },
   {
    "file": "JP-25.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "219.28.202.187",
-   "port": 1504,
+   "host": "219.100.37.126",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 143,
-   "ip_type": "residential"
+   "latency_ms": 118,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-26.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "220.26.54.127",
-   "port": 1772,
+   "host": "219.100.37.187",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 146,
-   "ip_type": "residential"
+   "latency_ms": 113,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-27.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "223.132.151.177",
-   "port": 1538,
+   "host": "219.100.37.213",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 153,
-   "ip_type": "residential"
+   "latency_ms": 113,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-28.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "223.252.65.82",
-   "port": 1653,
+   "host": "219.100.37.218",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 142,
-   "ip_type": "residential"
+   "latency_ms": 111,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-29.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "59.138.6.218",
-   "port": 1448,
+   "host": "219.100.37.23",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 140,
-   "ip_type": "residential"
+   "latency_ms": 113,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-30.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "60.104.109.86",
-   "port": 1362,
+   "host": "219.100.37.5",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 147,
-   "ip_type": "residential"
+   "latency_ms": 113,
+   "ip_type": "datacenter"
   },
   {
    "file": "JP-31.ovpn",
    "country_long": "Japan",
    "country_short": "JP",
-   "host": "60.91.40.164",
-   "port": 1374,
+   "host": "219.100.37.51",
+   "port": 443,
    "proto": "tcp",
-   "latency_ms": 154,
+   "latency_ms": 110,
+   "ip_type": "datacenter"
+  },
+  {
+   "file": "JP-32.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.59",
+   "port": 443,
+   "proto": "tcp",
+   "latency_ms": 118,
+   "ip_type": "datacenter"
+  },
+  {
+   "file": "JP-33.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.62",
+   "port": 443,
+   "proto": "tcp",
+   "latency_ms": 111,
+   "ip_type": "datacenter"
+  },
+  {
+   "file": "JP-34.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.100.37.97",
+   "port": 443,
+   "proto": "tcp",
+   "latency_ms": 112,
+   "ip_type": "datacenter"
+  },
+  {
+   "file": "JP-35.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "219.67.64.254",
+   "port": 1555,
+   "proto": "tcp",
+   "latency_ms": 126,
+   "ip_type": "residential"
+  },
+  {
+   "file": "JP-36.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "27.91.152.11",
+   "port": 1807,
+   "proto": "tcp",
+   "latency_ms": 112,
+   "ip_type": "residential"
+  },
+  {
+   "file": "JP-37.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "42.124.82.178",
+   "port": 1731,
+   "proto": "tcp",
+   "latency_ms": 125,
+   "ip_type": "residential"
+  },
+  {
+   "file": "JP-38.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "59.136.192.205",
+   "port": 1893,
+   "proto": "tcp",
+   "latency_ms": 115,
+   "ip_type": "residential"
+  },
+  {
+   "file": "JP-39.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.137.146.81",
+   "port": 1437,
+   "proto": "tcp",
+   "latency_ms": 138,
+   "ip_type": "residential"
+  },
+  {
+   "file": "JP-40.ovpn",
+   "country_long": "Japan",
+   "country_short": "JP",
+   "host": "60.141.30.170",
+   "port": 1516,
+   "proto": "tcp",
+   "latency_ms": 121,
    "ip_type": "residential"
   },
   {
    "file": "KR-01.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "115.86.163.189",
-   "port": 1446,
+   "host": "106.243.71.229",
+   "port": 1761,
    "proto": "tcp",
-   "latency_ms": 161,
+   "latency_ms": 141,
    "ip_type": "residential"
   },
   {
    "file": "KR-02.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "115.91.247.102",
-   "port": 1332,
+   "host": "112.156.19.217",
+   "port": 995,
    "proto": "tcp",
-   "latency_ms": 177,
+   "latency_ms": 138,
    "ip_type": "residential"
   },
   {
    "file": "KR-03.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "121.148.252.94",
-   "port": 1821,
+   "host": "116.44.113.68",
+   "port": 1393,
    "proto": "tcp",
-   "latency_ms": 161,
+   "latency_ms": 146,
    "ip_type": "residential"
   },
   {
    "file": "KR-04.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "124.198.97.126",
-   "port": 995,
+   "host": "121.128.114.134",
+   "port": 1854,
    "proto": "tcp",
-   "latency_ms": 162,
+   "latency_ms": 138,
    "ip_type": "residential"
   },
   {
    "file": "KR-05.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "14.52.185.91",
-   "port": 995,
+   "host": "121.162.174.151",
+   "port": 1848,
    "proto": "tcp",
-   "latency_ms": 164,
+   "latency_ms": 133,
    "ip_type": "residential"
   },
   {
    "file": "KR-06.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "169.210.25.38",
-   "port": 1339,
+   "host": "121.165.115.14",
+   "port": 1547,
    "proto": "tcp",
-   "latency_ms": 159,
+   "latency_ms": 133,
    "ip_type": "residential"
   },
   {
    "file": "KR-07.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "175.202.233.122",
-   "port": 1669,
+   "host": "128.134.26.92",
+   "port": 995,
    "proto": "tcp",
-   "latency_ms": 163,
+   "latency_ms": 131,
    "ip_type": "residential"
   },
   {
    "file": "KR-08.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "183.97.153.219",
-   "port": 1232,
+   "host": "14.55.36.160",
+   "port": 1712,
    "proto": "tcp",
-   "latency_ms": 158,
+   "latency_ms": 138,
    "ip_type": "residential"
   },
   {
    "file": "KR-09.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "211.104.214.78",
+   "host": "175.124.82.169",
    "port": 995,
    "proto": "tcp",
-   "latency_ms": 162,
+   "latency_ms": 145,
    "ip_type": "residential"
   },
   {
    "file": "KR-10.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "211.219.133.141",
+   "host": "175.205.234.136",
    "port": 995,
    "proto": "tcp",
-   "latency_ms": 158,
+   "latency_ms": 136,
    "ip_type": "residential"
   },
   {
    "file": "KR-11.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "211.244.206.212",
-   "port": 995,
+   "host": "175.207.199.120",
+   "port": 1323,
    "proto": "tcp",
-   "latency_ms": 182,
+   "latency_ms": 137,
    "ip_type": "residential"
   },
   {
    "file": "KR-12.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "221.157.238.148",
-   "port": 995,
+   "host": "180.230.30.211",
+   "port": 1701,
    "proto": "tcp",
-   "latency_ms": 170,
+   "latency_ms": 140,
    "ip_type": "residential"
   },
   {
    "file": "KR-13.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "221.165.101.47",
-   "port": 995,
+   "host": "183.105.32.110",
+   "port": 1865,
    "proto": "tcp",
-   "latency_ms": 156,
+   "latency_ms": 134,
    "ip_type": "residential"
   },
   {
    "file": "KR-14.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "222.121.236.146",
+   "host": "210.178.121.173",
    "port": 995,
    "proto": "tcp",
-   "latency_ms": 166,
+   "latency_ms": 132,
    "ip_type": "residential"
   },
   {
    "file": "KR-15.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "58.120.223.88",
-   "port": 1323,
+   "host": "210.222.46.145",
+   "port": 1588,
    "proto": "tcp",
-   "latency_ms": 169,
+   "latency_ms": 135,
    "ip_type": "residential"
   },
   {
    "file": "KR-16.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "58.127.236.201",
-   "port": 1790,
+   "host": "211.244.167.95",
+   "port": 995,
    "proto": "tcp",
-   "latency_ms": 164,
+   "latency_ms": 149,
    "ip_type": "residential"
   },
   {
    "file": "KR-17.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "58.231.14.28",
+   "host": "220.93.52.189",
    "port": 995,
    "proto": "tcp",
-   "latency_ms": 172,
+   "latency_ms": 133,
    "ip_type": "residential"
   },
   {
    "file": "KR-18.ovpn",
    "country_long": "Korea Republic of",
    "country_short": "KR",
-   "host": "59.15.245.216",
+   "host": "221.164.177.141",
    "port": 995,
    "proto": "tcp",
-   "latency_ms": 155,
+   "latency_ms": 131,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-19.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "222.233.9.179",
+   "port": 995,
+   "proto": "tcp",
+   "latency_ms": 136,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-20.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "27.126.5.202",
+   "port": 1712,
+   "proto": "tcp",
+   "latency_ms": 137,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-21.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "39.126.153.9",
+   "port": 995,
+   "proto": "tcp",
+   "latency_ms": 140,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-22.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "49.173.24.52",
+   "port": 1937,
+   "proto": "tcp",
+   "latency_ms": 140,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-23.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "58.120.240.122",
+   "port": 1794,
+   "proto": "tcp",
+   "latency_ms": 132,
+   "ip_type": "residential"
+  },
+  {
+   "file": "KR-24.ovpn",
+   "country_long": "Korea Republic of",
+   "country_short": "KR",
+   "host": "61.76.144.206",
+   "port": 1265,
+   "proto": "tcp",
+   "latency_ms": 139,
    "ip_type": "residential"
   },
   {
@@ -529,97 +682,57 @@
    "host": "217.138.212.62",
    "port": 443,
    "proto": "tcp",
-   "latency_ms": 167,
+   "latency_ms": 127,
    "ip_type": "unknown"
   },
   {
    "file": "RU-01.ovpn",
    "country_long": "Russian Federation",
    "country_short": "RU",
-   "host": "109.226.246.93",
-   "port": 1443,
+   "host": "109.108.53.13",
+   "port": 1868,
    "proto": "tcp",
-   "latency_ms": 263,
+   "latency_ms": 200,
    "ip_type": "residential"
   },
   {
    "file": "RU-02.ovpn",
    "country_long": "Russian Federation",
    "country_short": "RU",
-   "host": "80.70.96.50",
-   "port": 1926,
+   "host": "188.43.51.134",
+   "port": 1269,
    "proto": "tcp",
-   "latency_ms": 257,
+   "latency_ms": 215,
    "ip_type": "residential"
   },
   {
-   "file": "TH-01.ovpn",
-   "country_long": "Thailand",
-   "country_short": "TH",
-   "host": "184.82.68.222",
-   "port": 1249,
+   "file": "RU-03.ovpn",
+   "country_long": "Russian Federation",
+   "country_short": "RU",
+   "host": "77.34.80.187",
+   "port": 1961,
    "proto": "tcp",
-   "latency_ms": 218,
+   "latency_ms": 1214,
    "ip_type": "residential"
   },
   {
-   "file": "US-01.ovpn",
-   "country_long": "United States",
-   "country_short": "US",
-   "host": "135.180.146.60",
-   "port": 1818,
+   "file": "RU-04.ovpn",
+   "country_long": "Russian Federation",
+   "country_short": "RU",
+   "host": "77.35.95.91",
+   "port": 1507,
    "proto": "tcp",
-   "latency_ms": 42,
+   "latency_ms": 146,
    "ip_type": "residential"
   },
   {
-   "file": "US-02.ovpn",
-   "country_long": "United States",
-   "country_short": "US",
-   "host": "67.170.198.5",
-   "port": 1539,
+   "file": "RU-05.ovpn",
+   "country_long": "Russian Federation",
+   "country_short": "RU",
+   "host": "78.158.220.48",
+   "port": 1900,
    "proto": "tcp",
-   "latency_ms": 48,
-   "ip_type": "residential"
-  },
-  {
-   "file": "US-03.ovpn",
-   "country_long": "United States",
-   "country_short": "US",
-   "host": "67.5.100.174",
-   "port": 995,
-   "proto": "tcp",
-   "latency_ms": 47,
-   "ip_type": "residential"
-  },
-  {
-   "file": "US-04.ovpn",
-   "country_long": "United States",
-   "country_short": "US",
-   "host": "70.39.207.220",
-   "port": 443,
-   "proto": "tcp",
-   "latency_ms": 177,
-   "ip_type": "unknown"
-  },
-  {
-   "file": "VN-01.ovpn",
-   "country_long": "Viet Nam",
-   "country_short": "VN",
-   "host": "118.70.235.82",
-   "port": 1204,
-   "proto": "tcp",
-   "latency_ms": 228,
-   "ip_type": "residential"
-  },
-  {
-   "file": "VN-02.ovpn",
-   "country_long": "Viet Nam",
-   "country_short": "VN",
-   "host": "58.187.167.175",
-   "port": 1492,
-   "proto": "tcp",
-   "latency_ms": 239,
+   "latency_ms": 200,
    "ip_type": "residential"
   }
  ]
