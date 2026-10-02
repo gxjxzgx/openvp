@@ -201,20 +201,35 @@ def cfg_directive(cfg, name, default):
 
 def write_clash_yaml(nodes, out_dir):
     """生成 Clash 可直接用的 openvpn.yaml (proxies 列表)。
-    证书全网通用: 第一个节点用 YAML 锚点定义, 其余引用。"""
+    证书全网通用: 取第一个能解析出 ca/cert/key 的节点做 YAML 锚点, 其余引用。
+    节点名按 IP 类型区分: 🏠 家宽 / 🏢 机房 / ❓ 未知。"""
     os.makedirs(out_dir, exist_ok=True)
-    first = nodes[0]["config"]
-    ca, cert, key = pem_block(first, "ca"), pem_block(first, "cert"), pem_block(first, "key")
+    ca = cert = key = None
+    for n in nodes:
+        c, e, k = pem_block(n["config"], "ca"), pem_block(n["config"], "cert"), pem_block(n["config"], "key")
+        if c and e and k:
+            ca, cert, key = c, e, k
+            break
+    if not (ca and cert and key):
+        die("所有节点都解析不出完整证书, 拒绝生成坏文件")
 
     def indented(pem):
         return "\n".join("      " + ln for ln in pem.splitlines())
 
+    TYPE_LABEL = {
+        "residential": ("🏠", "家宽"),
+        "datacenter": ("🏢", "机房"),
+        "unknown": ("❓", "未知"),
+    }
     counters = {}
     out = ["proxies:"]
     for i, n in enumerate(nodes):
         cs = re.sub(r"\W+", "", n["country_short"]) or "XX"
-        counters[cs] = counters.get(cs, 0) + 1
-        name = f"🏠 {cs}-家宽-{counters[cs]:02d}"
+        ip_type = classify_ip_type(n.get("vg_host", ""))
+        emoji, label = TYPE_LABEL.get(ip_type, TYPE_LABEL["unknown"])
+        ck = (cs, label)
+        counters[ck] = counters.get(ck, 0) + 1
+        name = f"{emoji} {cs}-{label}-{counters[ck]:02d}"
         cfg = n["config"]
         cipher = cfg_directive(cfg, "cipher", "AES-128-CBC")
         auth = cfg_directive(cfg, "auth", "SHA1")
@@ -304,12 +319,22 @@ def main():
         die("没有提取到任何 OpenVPN 节点, 拒绝提交空结果")
 
     log(f"== 3/3 TCP 可达检查 (超时 {timeout}s, 并发 {workers}) ==")
-    alive = check_nodes(nodes, timeout, workers)
+    # UDP 不做 TCP 检查 (TCP 连 UDP 端口必然失败), 直接收录, 延迟记空
+    tcp_nodes = [n for n in nodes if n["proto"] != "udp"]
+    udp_nodes = [n for n in nodes if n["proto"] == "udp"]
+    alive = check_nodes(tcp_nodes, timeout, workers)
+    for n in udp_nodes:
+        n["latency_ms"] = None
+    if udp_nodes:
+        log(f"UDP 节点 {len(udp_nodes)} 个免检直接收录")
+    alive = alive + udp_nodes
     log(f"可达: {len(alive)}/{len(nodes)}")
     if not alive:
         die("TCP 检查后剩余 0 个可用节点, 拒绝提交空结果")
     if max_n > 0:
-        alive = alive[:max_n]
+        # 先按延迟取最快的前 N 个 (UDP 延迟为空排最后), 再按国家排序保证输出稳定
+        alive = sorted(alive, key=lambda n: n.get("latency_ms") if n.get("latency_ms") is not None else 10**9)[:max_n]
+    alive.sort(key=lambda n: (n["country_short"], n["remote_host"], n["remote_port"]))
 
     yaml_path, json_path = write_outputs(alive, out_dir, checked=len(nodes))
     log(f"已写入 {yaml_path} / {json_path} ({len(alive)} 个节点)")
