@@ -1,0 +1,43 @@
+# Cloudflare 边缘优选订阅 (vless://, 自动刷新)
+# 更新时间: 2026-10-02 20:27 (北京时间)
+# 每个池子 IP 一条直连节点, SNI=edtxxw.zx10.eu.cc, 共 40 个
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.229.82:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-01
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.240.103:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-02
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.160.32:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-03
+vless://b0437161-402e-483d-8462-65215b245b07@198.41.214.45:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-04
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.147.237:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-05
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.11.129:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-06
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.139.45:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-07
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.245.63:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-08
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.255.31:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-09
+vless://b0437161-402e-483d-8462-65215b245b07@172.64.43.130:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-10
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.74.214:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-11
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.117.225:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-12
+vless://b0437161-402e-483d-8462-65215b245b07@172.67.102.185:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-13
+vless://b0437161-402e-483d-8462-65215b245b07@172.64.92.54:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-14
+vless://b0437161-402e-483d-8462-65215b245b07@190.93.246.222:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-15
+vless://b0437161-402e-483d-8462-65215b245b07@173.245.59.234:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-16
+vless://b0437161-402e-483d-8462-65215b245b07@190.93.245.36:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-17
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.140.123:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-18
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.144.165:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-19
+vless://b0437161-402e-483d-8462-65215b245b07@162.159.157.240:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-20
+vless://b0437161-402e-483d-8462-65215b245b07@104.21.63.186:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-21
+vless://b0437161-402e-483d-8462-65215b245b07@162.159.235.79:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-22
+vless://b0437161-402e-483d-8462-65215b245b07@104.27.21.230:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-23
+vless://b0437161-402e-483d-8462-65215b245b07@162.159.82.101:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-24
+vless://b0437161-402e-483d-8462-65215b245b07@104.21.97.47:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-25
+vless://b0437161-402e-483d-8462-65215b245b07@104.27.18.121:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-26
+vless://b0437161-402e-483d-8462-65215b245b07@172.66.168.16:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-27
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.148.97:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-28
+vless://b0437161-402e-483d-8462-65215b245b07@104.21.86.153:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-29
+vless://b0437161-402e-483d-8462-65215b245b07@104.27.82.72:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-30
+vless://b0437161-402e-483d-8462-65215b245b07@104.25.6.51:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-31
+vless://b0437161-402e-483d-8462-65215b245b07@172.66.0.109:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-32
+vless://b0437161-402e-483d-8462-65215b245b07@172.65.42.158:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-33
+vless://b0437161-402e-483d-8462-65215b245b07@172.65.44.229:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-34
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.33.216:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-35
+vless://b0437161-402e-483d-8462-65215b245b07@162.159.45.3:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-36
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.253.145:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-37
+vless://b0437161-402e-483d-8462-65215b245b07@104.27.76.166:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-38
+vless://b0437161-402e-483d-8462-65215b245b07@104.24.63.198:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-39
+vless://b0437161-402e-483d-8462-65215b245b07@104.25.25.79:443?encryption=none&security=tls&type=ws&host=edtxxw.zx10.eu.cc&fp=chrome&sni=edtxxw.zx10.eu.cc&path=%2Fvideo%2F#CF%E4%BC%98%E9%80%89-40
